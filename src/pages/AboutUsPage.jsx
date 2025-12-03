@@ -38,6 +38,19 @@ function AboutPage() {
             </div>
           </div>
         </section>
+        {/* Mission Section */}
+        <section className="mb-16">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-3xl font-serif font-bold text-amber-600 mb-6">Our Mission</h2>
+            <div className="prose prose-lg max-w-none text-stone-700">
+              <p className="mb-4">
+               To nourish our community with seasonal, farm-fresh cuisine in an eco-conscious environment that celebrates sustainability from soil to table."
+                <br/><strong>Vision</strong>: "To be recognized as the region's leader in sustainable dining by 2025.
+              </p>
+              
+            </div>
+          </div>
+        </section>
 
         <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6">
