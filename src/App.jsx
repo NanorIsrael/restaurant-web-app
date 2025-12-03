@@ -6,11 +6,12 @@ import ReservationsPage from './pages/ReservationPage'
 import AboutPage from './pages/AboutUsPage'
 import GalleryPage from './pages/GalleryPage'
 import { Toaster } from 'sonner';
+import { Routes, Route, useNavigate} from 'react-router-dom';
 
 import './App.css'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigationItems = [
@@ -21,23 +22,6 @@ function App() {
     { id: 'gallery', label: 'Gallery' }
   ];
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage setCurrentPage={setCurrentPage} />;
-      case 'menu':
-        return <MenuPage />;
-      case 'reservations':
-        return <ReservationsPage />;
-      case 'about':
-        return <AboutPage />;
-      case 'gallery':
-        return <GalleryPage />;
-      default:
-        return <HomePage setCurrentPage={setCurrentPage} />;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Navigation */}
@@ -45,7 +29,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
+            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate('/home')}>
               <ChefHat className="w-8 h-8 text-amber-500" />
               <div>
                 <h1 className="text-2xl font-serif font-bold">The Café Fausse</h1>
@@ -58,9 +42,9 @@ function App() {
               {navigationItems.map(item => (
                 <button
                   key={item.id}
-                  onClick={() => setCurrentPage(item.id)}
+                  onClick={() => navigate(`/${item.id}`)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    currentPage === item.id
+                    window.location.pathname.includes(item.id)
                       ? 'text-amber-500 bg-stone-800'
                       : 'text-white hover:text-amber-500 hover:bg-stone-800'
                   }`}
@@ -86,7 +70,7 @@ function App() {
                 <button
                   key={item.id}
                   onClick={() => {
-                    setCurrentPage(item.id);
+                    navigate(`/${item.id}`)
                     setMobileMenuOpen(false);
                   }}
                   className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
@@ -103,19 +87,30 @@ function App() {
         </div>
       </nav>
       <Toaster
-                    duration={4500}
-                    position="top-right"
-                    toastOptions={{
-                      classNames: {
-                        //  toast: 'bg-white shadow-lg rounded-lg p-4',
-                        success: '!text-primary  border-2',
-                        error: '!text-red-600  border-2',
-                        warning: '!text-yellow-600  border-2',
-                      },
-                    }}
-                  />
+          duration={4500}
+          position="top-right"
+          toastOptions={{
+            classNames: {
+              //  toast: 'bg-white shadow-lg rounded-lg p-4',
+              success: '!text-primary  border-2',
+              error: '!text-red-600  border-2',
+              warning: '!text-yellow-600  border-2',
+            },
+          }}
+        />
       {/* Page Content */}
-      <main>{renderPage()}</main>
+     {/* Route definitions */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        
+        {/* Dynamic route */}
+        <Route path="/Reservations" element={<ReservationsPage />} />
+        <Route path="/*" element={<div>404 Not found</div>} />
+      </Routes>
       
       {/* Footer */}
       <footer className="bg-stone-900 text-white mt-16">

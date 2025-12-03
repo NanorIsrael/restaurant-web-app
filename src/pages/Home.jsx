@@ -1,7 +1,10 @@
 import {Phone, MapPin, Clock, Star, Award, Users, ChefHat } from 'lucide-react';
 import heroImage from "../assets/images/hero-bg.avif";
+import { useNavigate } from 'react-router-dom';
 
 function HomePage({ setCurrentPage }) {
+  const navigate = useNavigate();
+
   return (
     <div>
       {/* Hero Section */}
@@ -15,13 +18,13 @@ function HomePage({ setCurrentPage }) {
           <p className="text-xl md:text-2xl mb-8 text-stone-200">Where Culinary Art Meets Elegance</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => setCurrentPage('menu')}
+              onClick={() => navigate('/menu')}
               className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               View Menu
             </button>
             <button
-              onClick={() => setCurrentPage('reservations')}
+              onClick={() => navigate('/reservations')}
               className="bg-white hover:bg-stone-100 text-stone-900 px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               Make a Reservation
