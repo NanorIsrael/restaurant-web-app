@@ -44,8 +44,8 @@ function AboutPage() {
             <h2 className="text-3xl font-serif font-bold text-amber-600 mb-6">Our Mission</h2>
             <div className="prose prose-lg max-w-none text-stone-700">
               <p className="mb-4">
-               To nourish our community with seasonal, farm-fresh cuisine in an eco-conscious environment that celebrates sustainability from soil to table."
-                <br/><strong>Vision</strong>: "To be recognized as the region's leader in sustainable dining by 2025.
+               "Commited to unforgettable dining, excellent food and locally sourced ingredients."
+                <br/><strong>Vision</strong>: "To be recognized as the region's leader in sustainable dining by 2025."
               </p>
               
             </div>

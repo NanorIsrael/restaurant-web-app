@@ -32,7 +32,7 @@ function MenuPage() {
         { name: 'Grilled Salmon', description: ' Served with lemon butter sauce and seasonal vegetables', price: '$22.00', image: 2 },
         { name: 'Ribeye Steak', description: '12 oz prime cut with garlic mashed potatoes', price: '$28.00', image: 3 },
         // { name: 'Chicken Cordon Bleu', description: 'Stuffed chicken breast with ham and swiss cheese', price: '₵95' },
-        { name: 'Vegetarian Risotto', description: 'Creamy arborio rice with wild mushrooms', price: '₵85', image: 4},
+        { name: 'Vegetable Risotto', description: 'Creamy arborio rice with wild mushrooms', price: '₵85', image: 4},
         // { name: 'Lamb Chops', description: 'Herb-crusted lamb with rosemary jus and roasted vegetables', price: '₵135' },
         // { name: 'Seafood Linguine', description: 'Fresh seafood in white wine garlic sauce', price: '₵110' }
       ]
