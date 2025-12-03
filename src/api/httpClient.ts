@@ -81,12 +81,9 @@ class HTTPClient implements IHTTPClient {
         } catch {
           errorBody = await response.text();
         }
-		console.log('responseData', errorBody)
         return { success: false, error: errorBody };
       }
       	const responseData = await await response.json();
-		console.log('responseData', responseData)
-
       return { success: true, data: responseData };
     } catch (error: any) {
 
