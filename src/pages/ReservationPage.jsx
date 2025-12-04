@@ -237,7 +237,7 @@ function ReservationsPage() {
           </div>
         </div>
       </div>
-	  {isSuccess && <ReservationSuccessDialog openModal={true}/>}
+	  {isSuccess && <ReservationSuccessDialog setIsSuccess={setIsSuccess}/>}
     </div>
   );
 }

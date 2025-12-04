@@ -2,7 +2,7 @@ import DialogModal from './DialogModal';
 import { useState } from 'react';
 
 
-const PaymentSuccessfulDialog = () => {
+const PaymentSuccessfulDialog = ({setIsSuccess}) => {
   const  [openModal, setOpenModal] = useState(true)
 
   return (
@@ -10,6 +10,9 @@ const PaymentSuccessfulDialog = () => {
       size="lg"
       setIsOpen={(value) => {
         setOpenModal(value);
+        if (!value) {
+          setIsSuccess(false)
+        }
       }}
       isOpen={openModal}
       showActions={true}
